@@ -140,3 +140,4 @@ if __name__ == '__main__':
     print(f"Model loaded: {MODEL_LOADED}")
     print("Starting server on http://0.0.0.0:5000")
     app.run(host='0.0.0.0', port=5000, debug=True)
+
