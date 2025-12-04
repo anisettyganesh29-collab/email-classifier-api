@@ -52,8 +52,8 @@ def home():
     return jsonify({
         'status': 'online',
         'model_loaded': MODEL_LOADED,
-        'model_type': 'Random Forest',
-        'accuracy': '83%',
+        'model_type': 'Logistic Regression',
+        'accuracy': '82.82%',
         'endpoints': {
             'predict': '/predict (POST)',
             'health': '/health (GET)',
@@ -67,8 +67,8 @@ def health():
     return jsonify({
         'status': 'healthy' if MODEL_LOADED else 'error',
         'model_loaded': MODEL_LOADED,
-        'model_type': 'Random Forest',
-        'model_accuracy': 0.83,
+        'model_type': 'Logistic Regression',
+        'model_accuracy': 0.82,
         'classes': ['URGENT', 'NORMAL', 'INQUIRY'] if MODEL_LOADED else []
     })
 
@@ -121,8 +121,8 @@ def predict():
             'classification': prediction,
             'confidence': round(confidence, 2),
             'priority': priority,
-            'model': 'Random Forest',
-            'model_accuracy': 83,
+            'model': 'Logistic Regression',
+            'model_accuracy': 82.82,
             'processed_text': processed_text[:100],
             'original_length': len(email_text),
             'processed_length': len(processed_text),
@@ -140,4 +140,5 @@ if __name__ == '__main__':
     print(f"Model loaded: {MODEL_LOADED}")
     print("Starting server on http://0.0.0.0:5000")
     app.run(host='0.0.0.0', port=5000, debug=True)
+
 
